@@ -1,38 +1,264 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+ 
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header{
+  background-color: #ffffff;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0 0 3px 20px;
+}
+
+header img{
+  padding-right: 50px;
+}
+.nav-bar{
+  margin: 20px;
+  padding-left: 50px;
+}
+.nav-bar ul{
+  list-style: none;
+  display: flex;
+}
+.nav-bar ul li a{
+ 
+  text-decoration: none;
+  color:black;
+  padding: 1.5rem;
+  font-weight: bold;
+  transition: all .5s;
+}
+.nav-bar ul li a:hover{
+  color: #F4CE14;
+  background-color: black;
+
+}
+.intro-content{
+  background-color: #495E57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.intro-left{
+  width: 40%;
+}
+
+.intro-left h1{
+  color: #F4CE14;
+  font-size: 60px;
+}
+.intro-left h3{
+  color: #ffffff;
+  font-size: 30px;
+}
+.intro-left p{
   color: white;
+  width: 70%;
+  padding: 20px 40px 40px 0;
+}
+.intro-left button{
+  background-color: #F4CE14;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  padding: 20px 40px 20px 40px;
+  border-radius: 10px;
+  border:none;
+
+}
+.intro-right img{
+  height: 400px;
+  width: 340px;
+  border-radius: 20px;
+  position:relative;
+  top:3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.promo-content{
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 5em;
+  margin-bottom: 60px;
+}
+.promo-intro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.promo-header h2{
+  font-size: 50px;
+  margin-right: 4em;
+}
+.promo-button button{
+  background-color: #F4CE14;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  padding: 20px 40px 20px 40px;
+  border-radius: 10px;
+  border:none;
+}
+.promo-food{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4em;
+}
+.promo-item{
+  background-color: #EDEFEE;
+  align-items: center;
+  width: 17.5%;
+  margin-left: 30px;
+  border-radius: 20px 20px 0px 0;
+  
+}
+.promo-item img{
+  height: 184px;
+  width: 265px;
+  border-radius: 20px 20px 0px 0;
+}
+.promo-item h4{
+  margin: 10px 30px 10px 10px;
+  padding: 10px;
+}
+.promo-item span{
+  color: #EE9972;
+  font-size: 15px;
+  margin-left: 50px;
+}
+.promo-item p{
+  width: 70%;
+  padding: 10px;
+  margin: 10px 30px 10px 10px;
+  font-size: 13px;
+}
+.promo-item h5{
+  padding: 10px;
+  margin: 10px 30px 10px 10px;
+}
+.testmonials{
+  background-color: #495E57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.testmonials h1{
+  font-family: Markazi Text;
+  color: #ffffff;
+  padding: 40px;
+  margin: 50px auto 0px auto;
+  
+}
+.test-content{
+  display: flex;
+  margin-bottom: 5rem;
+}
+.ratings{
+  margin: 30px;
+  padding: 50px;
+  background-color: #F4CE14;
+  color: #ffffff;
+}
+.about-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about-left{
+  width: 40%;
+}
+
+.about-left h1{
+  font-size: 60px;
+}
+.about-left h3{
+  font-size: 30px;
+}
+.about-left p{
+  width: 70%;
+  padding: 20px 40px 40px 0;
+}
+.about-right img{
+  height: 400px;
+  width: 340px;
+}
+.footer-content{
+  background-color: #495E57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.footer-content img{
+    padding: 50px;
+    height: 400px;
+    width: 340px;
+    border-radius: 20px;
+}
+.aboutone{
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+.aboutone h3{
+  color:#F4CE14;
+}
+.aboutone ul{
+  list-style: none;
+}
+.aboutone li a{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color:#ffffff;
+  font-weight: bold;
+  margin-top:5px ;
+}
+.abouttwo{
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+.abouttwo h3{
+  color:#F4CE14;
+}
+.abouttwo ul{
+  list-style: none;
+}
+.abouttwo li{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color:#ffffff;
+  font-weight: bold;
+  margin-top:5px ;
+}
+.aboutthree{
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+.aboutthree h3{
+  color:#F4CE14;
+}
+.aboutthree ul{
+  list-style: none;
+}
+.aboutthree li{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color:#ffffff;
+  font-weight: bold;
+  margin-top:5px ;
 }
