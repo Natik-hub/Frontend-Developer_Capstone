@@ -1,5 +1,5 @@
 import {  Route, Routes } from "react-router-dom"
-import BookingPage from "./components/BookingPage"
+import Booking from "./components/Booking"
 import Home from "./components/Home"
 
 
@@ -8,7 +8,7 @@ const App = () => {
 
       <Routes>
       { <Route index element={<Home />} /> }
-        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/booking" element={<Booking />} />
 
       </Routes>
 

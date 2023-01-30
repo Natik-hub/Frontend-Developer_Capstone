@@ -1,13 +1,13 @@
 import React from 'react'
 import "./index.css";
-
+import footerlogo from '../assets/Logo.svg'
 
 const Footer = () => {
   return (
     <>
     <footer>
         <div className='footer-content'>
-          <img src='./restaurant.jpg' alt='Dishicon' />
+          <img src={footerlogo} alt='Dishicon' />
           <div className='aboutone'>
             <h3>Doormat Navigation</h3>
             <ul>
@@ -24,17 +24,17 @@ const Footer = () => {
           <div className='abouttwo'>
             <h3>Contact</h3>
             <ul>
-              <li>Phone</li>
-              <li>Phone</li>
-              <li>Phone</li>
+              <li>Address</li>
+              <li>Phone Number</li>
+              <li>Email</li>
             </ul>
           </div>
           <div className='aboutthree'>
             <h3>Social media links</h3>
             <ul>
-              <li>Phone</li>
-              <li>Phone</li>
-              <li>Phone</li>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Pinterst</li>
             </ul>
           </div>
         </div>

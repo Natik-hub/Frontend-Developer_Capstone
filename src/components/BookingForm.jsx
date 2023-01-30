@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import './index.css';
+import Select from 'react-select'
 
 const BookingForm = () => {
     const [date, setDate] = useState("");
@@ -19,12 +20,21 @@ const BookingForm = () => {
         });
         setRole("role");
     };
+    
+    const  availableTimes = [
+        { value: "12:00", label:'12:00 PM at 02/15/2023'},
+        { value: "13:00", label:'13:00 PM at 02/15/2023'},
+        { value: "16:00", label:'16:00 PM at 02/15/2023'},
+        { value: "18:00", label:'18:00 PM at 02/15/2023'},
+    ];
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Account created!");
+        alert("Booking Success!");
         clearForm();
     };
+//how to create react function?
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -49,22 +59,23 @@ const BookingForm = () => {
                         <label>
                             Choose Time <sup>*</sup>
                         </label>
-                        <input
-                        value={time}
+                       <Select 
+                        value ={availableTimes.find(({value}) => value===time)}
                         type="time"
                         placeholder="Time"
+                        options={availableTimes}
                         onChange={(e) => { 
-                            setTime(e.target.value); 
-                          }} 
-                        
-                        />
+                            setTime(e); 
+                          }} />
+
                     </div>
 
                     <div className="Field">
-                        <label>
-                            Number of guests<sup>*</sup>
+                        <label id='guests'>
+                            Number of guests:
                         </label>
                         <input
+                            aria-labelledby='guests'
                             value={guest.value}
                             type="number"
                             placeholder="Number of guests"
@@ -86,7 +97,7 @@ const BookingForm = () => {
                         </select>
                     </div>
                     <button type="submit">
-                        Create account
+                        Book Now
                     </button>
                 </fieldset>
             </form>

@@ -2,7 +2,7 @@ import React from 'react'
 import BookingForm from './BookingForm';
 
 
-const BookingPage = () => {
+const Booking = () => {
   return (
     <>
     <BookingForm />
@@ -10,4 +10,4 @@ const BookingPage = () => {
   )
 }
 
-export default BookingPage
+export default Booking

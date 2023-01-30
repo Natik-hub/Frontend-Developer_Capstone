@@ -180,7 +180,7 @@ header img{
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 50px;
+  margin: 100px 0px;
 }
 
 .about-left{
@@ -198,8 +198,24 @@ header img{
   padding: 20px 40px 40px 0;
 }
 .about-right img{
-  height: 400px;
-  width: 340px;
+  height: 350px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.about-right {
+  position: relative;
+}
+.about-right > img:first-child {
+  position: relative;
+  top: -5vh;
+  left: 0vw;
+  z-index: 1;
+}
+.about-right > img:last-child {
+  position: absolute;
+  top: 12vh;
+  left: -12vw;
 }
 /*Footer */
 
@@ -220,6 +236,7 @@ header img{
   display: flex;
   flex-direction: column;
   width: 10%;
+  margin-right: 50px;
 }
 .aboutone h3{
   color:#F4CE14;
@@ -233,15 +250,18 @@ header img{
   text-decoration: none;
   color:#ffffff;
   font-weight: bold;
-  margin-top:5px ;
+  margin-top:10px ;
 }
 .abouttwo{
   display: flex;
   flex-direction: column;
   width: 10%;
+  margin-right: 50px;
+  margin-bottom: 4.5rem;
 }
 .abouttwo h3{
   color:#F4CE14;
+  margin-bottom: 1rem;
 }
 .abouttwo ul{
   list-style: none;
@@ -252,15 +272,17 @@ header img{
   text-decoration: none;
   color:#ffffff;
   font-weight: bold;
-  margin-top:5px ;
+  margin-bottom: 1rem;
 }
 .aboutthree{
   display: flex;
   flex-direction: column;
-  width: 10%;
+  width: 15%;
+  margin-bottom: 4.5rem;
 }
 .aboutthree h3{
   color:#F4CE14;
+  margin-bottom: 1rem;
 }
 .aboutthree ul{
   list-style: none;
@@ -271,7 +293,7 @@ header img{
   text-decoration: none;
   color:#ffffff;
   font-weight: bold;
-  margin-top:5px ;
+  margin-bottom: 1rem;
 }
 form{
   display: flex;
@@ -287,6 +309,9 @@ fieldset {
     border: 1px solid #ccc;
     border-radius: 4px;
     flex-direction: column;
+}
+fieldset h2{
+  margin: 20px 0px;
 }
 label {
     margin-bottom: 8px;

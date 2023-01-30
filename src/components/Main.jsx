@@ -1,5 +1,11 @@
 import React from 'react'
 import "./index.css";
+import restaurantfood from '../assets/restauranfood.jpg';
+import greekSalad from '../assets/greek salad.jpg';
+import lemondessert from '../assets/lemon dessert.jpg';
+import bruchetta from '../assets/bruchetta.svg';
+import RestaurantImage from '../assets/restaurant.jpg'
+import ChefsImage from '../assets/chefs.jpg'
 
 const Main = () => {
   return (
@@ -13,7 +19,7 @@ const Main = () => {
             <button> Reserve a table</button>
           </div>
           <div class='intro-right'>
-            <img src='./restauranfood.jpg' alt='resturant Food' />
+            <img src={restaurantfood} alt='resturant Food' />
           </div>
         </section>
         <section className='promo-content'>
@@ -27,19 +33,19 @@ const Main = () => {
           </div>
           <div className='promo-food'>
             <div className='promo-item'>
-              <img src='./greek salad.jpg' alt='Greek Salad' />
+              <img src={greekSalad} alt='Greek Salad' />
               <h4>Greek salad <span>$12.99</span></h4>
               <p>The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons. </p>
               <h5>Order a delivery</h5>
             </div>
             <div className='promo-item'>
-              <img src='./greek salad.jpg' alt='Greek Salad' />
-              <h4>Greek salad<span>$12.99</span></h4>
+              <img src={lemondessert}alt='lemondessert' />
+              <h4>Lemon dessert<span>$12.99</span></h4>
               <p>The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons. </p>
               <h5>Order a delivery</h5>
             </div>
             <div className='promo-item'>
-              <img src='./greek salad.jpg' alt='Greek Salad' />
+              <img src={bruchetta} alt='Greek Salad' />
               <h4>Greek salad<span>$12.99</span></h4>
               <p>The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons. </p>
               <h5>Order a delivery</h5>
@@ -81,7 +87,8 @@ const Main = () => {
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </p>
           </div>
           <div className="about-right">
-            <img src='./restaurantchef.jpg' alt='About' />
+          <img src={ChefsImage} alt="Little Lemon Restaurant" />
+          <img src={RestaurantImage} alt="Little Lemon Restaurant Chefs" />
           </div>
         </section>
       </main>
