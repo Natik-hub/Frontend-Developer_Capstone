@@ -1,12 +1,16 @@
 import React from 'react'
-import BookingForm from './BookingForm';
+import Footer from './Footer'
+import Header from './Header'
+import BookTable from './BookTable'
 
 
-const Booking = () => {
+const Booking = ({ availableTimes, setAvailableTimes, submitForm }) => {
   return (
-    <>
-    <BookingForm />
-    </>
+    <div>
+        <Header />
+        <BookTable availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} submitForm={submitForm} />
+        <Footer />
+    </div>
   )
 }
 

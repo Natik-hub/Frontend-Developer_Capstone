@@ -1,108 +1,86 @@
-import React from 'react'
-import { useState } from 'react';
-import './index.css';
-import Select from 'react-select'
-
-const BookingForm = () => {
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
-    const [guest, setGuest] = useState({
-        value: "1",
-    });
-    const [occasion, setRole] = useState("occasion");
+import React, { useState } from 'react'
 
 
-    const clearForm = () => {
-        setDate("");
-        setTime("");
-        setGuest({
-            value: "1",
-        });
-        setRole("role");
-    };
-    
-    const  availableTimes = [
-        { value: "12:00", label:'12:00 PM at 02/15/2023'},
-        { value: "13:00", label:'13:00 PM at 02/15/2023'},
-        { value: "16:00", label:'16:00 PM at 02/15/2023'},
-        { value: "18:00", label:'18:00 PM at 02/15/2023'},
-    ];
-    
+const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
 
-    const handleSubmit = (e) => {
+    const initDate = new Date();
+    initDate.setDate(initDate.getDate() + 1);
+    const YYYY = initDate.getFullYear();
+    const MM = initDate.getMonth() < 10 ? "0" + (initDate.getMonth() + 1) : initDate.getMonth() + 1;
+    const DD = initDate.getDate() < 10 ? "0" + initDate.getDate() : initDate.getDate();
+
+    const [date, setDate] = useState(YYYY + "-" + MM + "-" + DD);
+    const [time, setTime] = useState("17:00");
+    const [guests, setGuests] = useState(2);
+    const [occassion, setOccassion] = useState("none");
+
+    function isValidDate(dateString) {
+        const yyyymmdd = dateString.split("-");
+        const dateObj = new Date(parseInt(yyyymmdd[0]), parseInt(yyyymmdd[1]) - 1, parseInt(yyyymmdd[2]));
+        if (dateObj <= new Date())
+            return false;
+        return true;
+    }
+
+    function getDateObject (dateString) {
+        const yyyymmdd = dateString.split("-");
+        const dateObj = new Date(parseInt(yyyymmdd[0]), parseInt(yyyymmdd[1]) - 1, parseInt(yyyymmdd[2]));
+        return dateObj;
+    }
+
+    function handleDateChange(e) {
+        if (!isValidDate(e.target.value)) {
+            alert(`Sorry! Reservations not available for this date!`);
+            return;
+        }
+        const dateObject = getDateObject(e.target.value);
+        setDate(e.target.value);
+        setAvailableTimes({ setBookingDate: dateObject });
+    }
+
+    function handleSubmit(e) {
         e.preventDefault();
-        alert("Booking Success!");
-        clearForm();
-    };
-//how to create react function?
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <fieldset>
-                    <h2>Booking form</h2>
-                    <div className="Field">
-                        <label>
-                            Choose Date <sup>*</sup>
-                        </label>
-                        <input
-                        value={date}
-                        type='date'
-                        inputFormat="MM/dd/yyyy"
-                        placeholder="Date"
-                        onChange={(e) => { 
-                            setDate(e.target.value); 
-                          }} 
-                        
-                        />
-                    </div>
-                    <div className="Field">
-                        <label>
-                            Choose Time <sup>*</sup>
-                        </label>
-                       <Select 
-                        value ={availableTimes.find(({value}) => value===time)}
-                        type="time"
-                        placeholder="Time"
-                        options={availableTimes}
-                        onChange={(e) => { 
-                            setTime(e); 
-                          }} />
+        const reservation = {
+            date: date,
+            time: time,
+            guests: guests,
+            occassion: occassion
+        }
+        submitForm(reservation);
+    }
 
-                    </div>
-
-                    <div className="Field">
-                        <label id='guests'>
-                            Number of guests:
-                        </label>
-                        <input
-                            aria-labelledby='guests'
-                            value={guest.value}
-                            type="number"
-                            placeholder="Number of guests"
-                            min={1}
-                            max={10}
-                            onChange={(e) => { 
-                                setGuest(e.target.value); 
-                              }} 
-                        />
-                    </div>
-                    <div className="Field">
-                        <label>
-                            Occasion <sup>*</sup>
-                        </label>
-                        <select value={occasion} onChange={(e) => setRole(e.target.value)}>
-                            <option value="occasion">Occasion</option>
-                            <option value="birthday">Birthday</option>
-                            <option value="anniversary">Anniversary</option>
-                        </select>
-                    </div>
-                    <button type="submit">
-                        Book Now
-                    </button>
-                </fieldset>
-            </form>
+  return (
+    <form onSubmit={handleSubmit}>
+        <h1>Reserve a table</h1>
+        <div className="form-group">
+            <label htmlFor="Date">Date</label>
+            <input type="date" name='date' value={date} onChange={handleDateChange} required/>
         </div>
-    )
+        <div className="form-group">
+            <label htmlFor="time">Time</label>
+            <select name='time' value={time} onChange={(e) => setTime(e.target.value)} required>
+                {
+                    availableTimes.times.map((time, index) => {
+                        return <option value={time} key={index}>{ time }</option>
+                    })
+                }
+            </select>
+        </div>
+        <div className="form-group">
+            <label htmlFor="guests">Guests</label>
+            <input type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} required/>
+        </div>
+        <div className="form-group">
+            <label htmlFor="occassion">Occassion</label>
+            <select name='occassion' value={occassion} onChange={(e) => setOccassion(e.target.value)} >
+                <option value="none">None</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+            </select>
+        </div>
+        <input type="submit" value="Confirm Reservation" />
+    </form>
+  )
 }
 
 export default BookingForm

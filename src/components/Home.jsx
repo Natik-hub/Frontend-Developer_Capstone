@@ -1,16 +1,16 @@
 import React from 'react'
 import Main from './Main'
-import Navbar from './Navbar'
+import Header from './Header'
 import Footer from './Footer'
 
-const Home = () => {
+function App() {
   return (
-    <>
-    <Navbar />
-    <Main />
-    <Footer />
-    </>
-  )
+    <div className="App">
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+  );
 }
 
-export default Home
+export default App;

@@ -1,18 +1,49 @@
-import {  Route, Routes } from "react-router-dom"
-import Booking from "./components/Booking"
+import './App.css';
+import { useReducer } from 'react';
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home"
+import Booking from './components/Booking';
+import { fetchAPI, submitAPI } from './server/api';
+import ConfirmedBooking from './components/ConfirmedBooking';
+import Main from './components/Main';
 
+function App() {
 
-const App = () => {
+  function initializeTimes() {
+    const times = {
+      times: [...fetchAPI(new Date())],
+    };
+    return times;
+  }
+
+  function reducer(_state, action) {
+    const newBookingDate = action.setBookingDate;
+    const newTimes = fetchAPI(newBookingDate);
+    return { times: [...newTimes] };
+  }
+
+  function submitForm(formData) {
+    const success = submitAPI(formData);
+    if (success) {
+      window.location.href = '/confirmedbooking';
+    }
+  }
+
+  const initialState = initializeTimes();
+  const [availableTimes, setAvailableTimes] = useReducer(reducer, initialState);
+
   return (
-
+    <div className="App">
       <Routes>
-      { <Route index element={<Home />} /> }
-        <Route path="/booking" element={<Booking />} />
-
+        <Route path="/" element={ <Home /> } />
+        <Route path="/booking" element={ <Booking availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} submitForm={submitForm} /> } />
+        <Route path="/confirmedbooking" element={ <ConfirmedBooking /> } />
+        <Route path="/about" element={ <Main /> } />
+        <Route path="/menu" element={ <Main /> } />
+        <Route path="/order" element={ <Main /> } />
       </Routes>
-
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
